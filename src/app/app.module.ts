@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -7,6 +8,7 @@ import { FormularioComponent } from './components/formulario/formulario.componen
 import { ListadoNoticiasComponent } from './components/listado-noticias/listado-noticias.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
+import { HttpClientModule } from '@angular/common/http' ; 
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { SpinnerComponent } from './shared/spinner/spinner.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule , 
+    FormsModule , 
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
