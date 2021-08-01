@@ -7,18 +7,22 @@ import { NoticiaService } from './services/noticia.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'noticias';
+  listNoticias: any[] = [] ; 
+  loading = false ; 
 
   constructor( private _noticiasService: NoticiaService){
 
   }
 
-
   buscarNoticia(parametros: any){
-    console.log('Soy el padre') ;
-    console.log(parametros);  
+     this.loading = true ; 
+     this.listNoticias = []  ; 
     this._noticiasService.getNoticias(parametros).subscribe(data => {
-      console.log(data); 
+      this.loading = false ; 
+      this.listNoticias = data.articles ; 
+    }, error => {
+      console.log(error); 
+      this.loading = false ; 
     })
   }
 }
